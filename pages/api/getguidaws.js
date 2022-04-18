@@ -25,4 +25,6 @@ export default async function (req, res) {
   } else if (req.method === 'PUT') {
     // Allow a blog post to update its likes (via a button) or views (on rendering)
   }
+  res.statusCode = 201;
+  return res.json(JSON.stringify(result));
 }
