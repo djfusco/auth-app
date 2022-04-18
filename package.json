@@ -9,11 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "aws-sdk": "^2.1116.0",
+    "mongodb": "^4.5.0",
     "next": "12.1.5",
+    "object-hash": "^3.0.0",
     "react": "18.0.0",
     "react-dom": "18.0.0"
   },
   "devDependencies": {
+    "@types/mongodb": "^4.0.7",
     "eslint": "8.13.0",
     "eslint-config-next": "12.1.5"
   }
