@@ -13,8 +13,14 @@ export default async function (req, res) {
             }
         };
         var result = await db.get(params).promise();
-        console.log(JSON.stringify(result));
-        return res.json(result.Item.guid);
+        if (result.Item){
+            console.log(JSON.stringify(result));
+            return res.json(result.Item.guid);
+        }
+        else {
+            console.log(id, " Does not exist");
+            return res.json("NA");
+        }
 
      } else if (req.method === 'PUT') {
         const params = {
