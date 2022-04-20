@@ -1,11 +1,11 @@
 import db from "./db";
 
 export default async function (req, res) {
-    const id = req.body.uid;
-    var hash = require('object-hash');
-    const valueID = hash(id, {algorithm: 'md5'});
-
     if (req.method === 'GET') {
+        const id = req.query.uid;
+        var hash = require('object-hash');
+        const valueID = hash(id, {algorithm: 'md5'});
+
         const params = {
             TableName: 'GUID',
             Key: {
@@ -18,11 +18,15 @@ export default async function (req, res) {
             return res.json(result.Item.guid);
         }
         else {
-            console.log(id, " Does not exist");
+            console.log(id, "Does not exist");
             return res.json("NA");
         }
 
      } else if (req.method === 'PUT') {
+        const id = req.body.uid;
+        var hash = require('object-hash');
+        const valueID = hash(id, {algorithm: 'md5'});
+
         const params = {
             TableName: 'GUID',
             Item: {
